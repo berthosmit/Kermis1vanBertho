@@ -1,0 +1,47 @@
+// HET KAN ZIJN DAT DE CODE NIET LOOPT. IK HEB TWEE BESTANDEN SAMENGEVOEGD TOT EEN.
+
+import java.util.Scanner;
+
+class Demo{
+	public static void main(String[] args){
+		Kermis kermis = new Kermis();
+		kermis.spelen();
+
+class Kermis {
+
+	void spelen(){
+		String[] attracties = {"Botsauto's","Spin","Spiegelpaleis","Spookhuis","Hawaii","Ladderklimmen"};
+		System.out.println("Op de kermis zijn de volgende attracties:");
+		for ( int i = 0 ; i < attracties.length ; i++){
+			System.out.println((i+1) + ". " + attracties[i]);
+		}
+		System.out.println("");
+		int stophetspel = 1;
+		while (stophetspel != 0) {
+			Scanner attractie = new Scanner(System.in);
+			System.out.println("Welke attractie wil je spelen? Voer het nummer van de attractie in.");
+			System.out.println("Wil je de kermis verlaten, toets dan 0.");
+			int attractieKeuze = attractie.nextInt();
+			if (attractieKeuze == 0) {
+				stophetspel = 0;
+			}
+			while (attractieKeuze > 6) {
+				//			if (attractieKeuze == 0) break;				DEZE WERKT NIET. MOET IN EEN LOOP. IS WHILE EEN LOOP?
+				System.out.println("Sorry joh, keuze " + attractieKeuze + " is ongeldig. Maak je keuze opnieuw.");
+				attractieKeuze = attractie.nextInt();
+			}
+			if (attractieKeuze == 0) {
+				System.out.println("OK, no worries. Tot de volgende keer.");
+			} else { 
+				System.out.println("Je hebt gekozen voor " + attractieKeuze + ". " + attracties[attractieKeuze - 1] + ".");
+				System.out.println("Dat is een uitstekende keuze.");
+				System.out.println("");
+				System.out.println("Ahh, wat jammer, de attractie is voorbij.");
+				System.out.println("");
+			}
+
+		}
+	}
+}
+}
+}
